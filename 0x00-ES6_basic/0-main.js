@@ -1,4 +1,3 @@
-import taskBlock from './1-block-scoped';
+import createEmployeesObject from './11-createEmployeesObject.js';
 
-console.log(taskBlock(true));
-console.log(taskBlock(false));
+console.log(createEmployeesObject("Software", [ "Bob", "Sylvie" ]));
