@@ -1,30 +1,41 @@
-// Exporting a default class, which means it can be imported using any name when imported in another file.
-
-export default class {
-  // Constructor that accepts two parameters 'code' and 'name' and initializes the class properties.
-  constructor(code, name) {
-    this._code = code; // Private property '_code' to store the currency code.
-    this._name = name; // Private property '_name' to store the currency name.
-  }
-
-  get code() {
-    return this._code; // Getter method for 'code' property, allowing read access to '_code'.
-  }
-
-  set code(newCode) {
-    this._code = newCode; // Setter method for 'code' property, allowing write access to '_code'.
-  }
-
-  get name() {
-    return this._name; // Getter method for 'name' property, allowing read access to '_name'.
-  }
-
-  set name(newName) {
-    this._name = newName; // Setter method for 'name' property, allowing write access to '_name'.
-  }
-
-  displayFullCurrency() {
-    // Method to display the full currency, including the name and code, as a formatted string.
-    return `${this._name} (${this._code})`;
-  }
-}
+// The Currency class represents a currency with a code and a name.
+export default class Currency {
+    // The constructor initializes a new Currency instance with the given code and name.
+    constructor(code, name) {
+      this._code = code; // Private field to store the currency code.
+      this._name = name; // Private field to store the currency name.
+    }
+  
+    // Setter for the currency code. It updates the private _code field if the input is a string.
+    set code(newCode) {
+      if (typeof newCode === 'string') {
+        this._code = newCode;
+      } else {
+        throw new Error('Code must be a string');
+      }
+    }
+  
+    // Getter for the currency code. It returns the private _code field.
+    get code() {
+      return this._code;
+    }
+  
+    // Setter for the currency name. It updates the private _name field if the input is a string.
+    set name(newName) {
+      if (typeof newName === 'string') {
+        this._name = newName;
+      } else {
+        throw new Error('Name must be a string');
+      }
+    }
+  
+    // Getter for the currency name. It returns the private _name field.
+    get name() {
+      return this._name;
+    }
+  
+    // Method to display the full currency information as a string (name and code).
+    displayFullCurrency() {
+      return `${this._name} (${this._code})`;
+    }
+  }  
